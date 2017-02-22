@@ -51,10 +51,9 @@ class TextBox(TextInput):
         self.writer.goto(self.pos)
 
     def write_msg(self):
-        self.writer.penup()
-        self.writer.goto(0,0)
-        self.writer.pendown()
-        self.writer.write(input())
+        self.writer.clear()
+        self.writer.write(self.new_msg)
+        
 
 try1=TextBox()
 try1.draw_box()
@@ -79,6 +78,12 @@ try1.write_msg()
 #      you send messages and update message displays.
 #####################################################################################
 #####################################################################################
+class SendButton(Button):
+    def __init__ (self, view):
+        self.view=view
+        super()
+    def fun(Self,x=None,y=None):
+        self.view.send_msg
 
 
 ##################################################################
@@ -90,7 +95,7 @@ try1.write_msg()
 #Read the comments below for hints and directions.
 ##################################################################
 ##################################################################
-class View:
+class View:                     
     _MSG_LOG_LENGTH=5 #Number of messages to retain in view
     _SCREEN_WIDTH=300
     _SCREEN_HEIGHT=600
