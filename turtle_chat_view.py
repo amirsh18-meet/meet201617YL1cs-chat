@@ -81,7 +81,7 @@ try1.write_msg()
 class SendButton(Button):
     def __init__ (self, view):
         self.view=view
-        super()
+        super(SendButton)
     def fun(Self,x=None,y=None):
         self.view.send_msg
 
