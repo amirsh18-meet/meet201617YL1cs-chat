@@ -79,13 +79,21 @@ try1.write_msg()
 #####################################################################################
 #####################################################################################
 class SendButton(Button):
-    def __init__ (self, view):
+    def __init__ (self, view=None, my_turtle=None,shape=None,pos=(0,-220)):
+        super(SendButton,self).__init__(my_turtle,shape,pos)
         self.view=view
-        super(SendButton)
+
     def fun(Self,x=None,y=None):
-        self.view.send_msg
+        self.view.send_msg()
+   
+    def draw_box(self,pos,width,height):
+        self.draw_box.pos(0,0)
+        self.draw_box.width=50
+        self.draw_box.height=50
 
+    
 
+    
 ##################################################################
 #                             View                               #
 ##################################################################

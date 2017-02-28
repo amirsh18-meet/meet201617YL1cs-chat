@@ -72,7 +72,7 @@ class TextInput(metaclass=ABCMeta):
         :param width: integer, width of box (pixels).  Default=200 pixels.
         :param height: integer, height of box (pixels).  Default=100 pixels.
         :param pos: tuple, (x,y) - textbox location on screen.  Default=(0,0)
-        :param background_gif: string, name of background gif image for textbox
+        :param background_gif: string, nameD of background gif image for textbox
                                - can be used in draw_box, though not required.
                                Default=None.
         :param letters_per_line: integer, number of letters per line.
