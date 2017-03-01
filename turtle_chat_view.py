@@ -117,12 +117,19 @@ class View:
         ###
         #Store the username and partner_name into the instance.
         ###
-
+        self.username=username
+        self.partner_name=partner_name
         ###
         #Make a new client object and store it in this instance of View
         #(i.e. self).  The name of the instance should be my_client
         ###
-
+        turtle.setup(width=400, height=600, startx=None, starty=None)
+        my_client=client()
+        self.client=my_client
+        textbox=TextBox()
+        self.TextBox=textbox
+        self.TextBox.draw_box()
+        self.button=SendButton(self)
         ###
         #Set screen dimensions using turtle.setup
         #You can get help on this function, as with other turtle functions,
@@ -141,6 +148,8 @@ class View:
         #or at the end of the list using
         #   self.msg_queue.append(a_msg_string)
         self.msg_queue=[]
+        
+        
         ###
 
         ###
@@ -148,12 +157,20 @@ class View:
         #You can use the clear() and write() methods to erase
         #and write messages for each
         ###
-
+        self.msg_queue_turtles=list()
+        for i in range(4):
+            self.msg_queue.insert(i,"")
+            self.msg_queue_turtles.append(turtle.clone())
+        for tutu in range(4):
+            self.msg_queue[tutu].hideturtle()
+            self.msg_queue[tutu].penup()
+            self.msg_queue[tutu].goto(-100,tutu*(_LINE_SPACING))
         ###
         #Create a TextBox instance and a SendButton instance and
         #Store them inside of this instance
         ###
-
+        self.text_box=TextBox()
+        self.send_button=SendButton(self)
         ###
         #Call your setup_listeners() function, if you have one,
         #and any other remaining setup functions you have invented.
@@ -169,7 +186,10 @@ class View:
         It should call self.display_msg() to cause the message
         display to be updated.
         '''
-        pass
+        self.client.send(self.text_box.new_msg)
+        self.msg_queue.insert(0,self.text_box.new_msg)
+        self.txt_box.clear()
+        self.display_msg()
 
     def get_msg(self):
         return self.textbox.get_msg()
