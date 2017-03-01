@@ -88,8 +88,8 @@ class SendButton(Button):
    
     def draw_box(self,pos,width,height):
         self.draw_box.pos(0,0)
-        self.draw_box.width=50
-        self.draw_box.height=50
+        self.draw_box.width=100
+        self.draw_box.height=100
 
     
 
@@ -124,8 +124,8 @@ class View:
         #(i.e. self).  The name of the instance should be my_client
         ###
         turtle.setup(width=400, height=600, startx=None, starty=None)
-        my_client=client()
-        self.client=my_client
+        my_client=Client()
+        self.my_client=my_client
         textbox=TextBox()
         self.TextBox=textbox
         self.TextBox.draw_box()
@@ -186,7 +186,7 @@ class View:
         It should call self.display_msg() to cause the message
         display to be updated.
         '''
-        self.client.send(self.text_box.new_msg)
+        self.my_client.send(self.text_box.new_msg)
         self.msg_queue.insert(0,self.text_box.new_msg)
         self.txt_box.clear()
         self.display_msg()
